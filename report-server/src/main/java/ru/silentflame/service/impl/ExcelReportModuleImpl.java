@@ -51,8 +51,6 @@ public class ExcelReportModuleImpl implements ReportModule {
     }
   }
 
-
-
   private static void writeHeaders(Sheet sheet, Workbook workbook, List<String> headers) {
     Row headerRow = sheet.createRow(0);
 

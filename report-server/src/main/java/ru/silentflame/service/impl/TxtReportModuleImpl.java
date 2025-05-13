@@ -22,7 +22,7 @@ public class TxtReportModuleImpl implements ReportModule {
          Writer writer = new PrintWriter(outputStream)) {
       for (var item : request.getPayloadData()) {
         var stringJoiner = new StringJoiner(";");
-        for (var field : item.keySet()) {
+        for (var field : item.keySet().stream().sorted().toList()) {
           var fieldValue = item.get(field);
           stringJoiner.add(field + "=" + fieldValue);
         }

@@ -9,6 +9,6 @@ import java.util.Map;
 public class ReportUtils {
   public static List<String> getReportHeaders(List<Map<String, String>> reportData) {
     // Считать ли поля в разном регистре идентичными?
-    return reportData.stream().flatMap(item -> item.keySet().stream()).distinct().toList();
+    return reportData.stream().flatMap(item -> item.keySet().stream()).sorted().distinct().toList();
   }
 }
