@@ -9,7 +9,7 @@ import ru.silentflame.service.ReportModule;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
+import static ru.silentflame.utils.ReportUtils.getReportHeaders;
 
 @Service
 public class ExcelReportModuleImpl implements ReportModule {
@@ -51,10 +51,7 @@ public class ExcelReportModuleImpl implements ReportModule {
     }
   }
 
-  private static List<String> getReportHeaders(List<Map<String, String>> reportData) {
-    // Считать ли поля в разном регистре идентичными?
-    return reportData.stream().flatMap(item -> item.keySet().stream()).toList();
-  }
+
 
   private static void writeHeaders(Sheet sheet, Workbook workbook, List<String> headers) {
     Row headerRow = sheet.createRow(0);
